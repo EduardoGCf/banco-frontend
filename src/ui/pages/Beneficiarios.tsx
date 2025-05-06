@@ -4,6 +4,7 @@ import { Beneficiario } from '../../domain/Beneficiario';
 import { listarBeneficiarios } from '../../application/beneficiario/listarBeneficiarios';
 import { agregarBeneficiario } from '../../application/beneficiario/agregarBeneficiario';
 import { eliminarBeneficiario } from '../../application/beneficiario/eliminarBeneficiario';
+import { editarBeneficiario } from '../../application/beneficiario/editarBeneficiario';
 import Navbar from '../components/Navbar';
 
 export default function Beneficiarios() {
@@ -44,6 +45,22 @@ export default function Beneficiarios() {
     }
   };
 
+
+  const handleEditar = async (id: number, actualAlias: string) => {
+    const nuevoAlias = prompt("Nuevo alias:", actualAlias);
+    if (!nuevoAlias || nuevoAlias.trim() === '') return;
+  
+    try {
+      await editarBeneficiario(id, nuevoAlias.trim());
+      cargarBeneficiarios();
+    } catch (err: any) {
+      alert(err.response?.data?.error || 'Error al editar beneficiario');
+    }
+  };
+  
+
+
+
   return (
     <div>
       <Navbar />
@@ -83,6 +100,13 @@ export default function Beneficiarios() {
               <div>
                 <strong>{b.alias}</strong> — {b.nro_cuenta}
               </div>
+              <button
+              className="btn btn-sm btn-outline-secondary me-2"
+              onClick={() => handleEditar(b.id, b.alias)}
+              >
+              Editar
+              </button>
+
               <button
                 className="btn btn-sm btn-outline-danger"
                 onClick={() => handleEliminar(b.id)}
