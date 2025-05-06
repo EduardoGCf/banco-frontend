@@ -49,7 +49,7 @@ export default function Beneficiarios() {
   const handleEditar = async (id: number, actualAlias: string) => {
     const nuevoAlias = prompt("Nuevo alias:", actualAlias);
     if (!nuevoAlias || nuevoAlias.trim() === '') return;
-  
+    
     try {
       await editarBeneficiario(id, nuevoAlias.trim());
       cargarBeneficiarios();
@@ -100,19 +100,19 @@ export default function Beneficiarios() {
               <div>
                 <strong>{b.alias}</strong> — {b.nro_cuenta}
               </div>
+              <div>
               <button
               className="btn btn-sm btn-outline-secondary me-2"
-              onClick={() => handleEditar(b.id, b.alias)}
-              >
+              onClick={() => handleEditar(b.id, b.alias)}>
               Editar
               </button>
-
               <button
                 className="btn btn-sm btn-outline-danger"
                 onClick={() => handleEliminar(b.id)}
               >
                 Eliminar
               </button>
+              </div>
             </li>
           ))}
         </ul>
