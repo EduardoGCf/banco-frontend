@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Cuenta } from '../../domain/Cuenta';
-import { Movimiento } from '../../domain/Movimiento';
+import { Cuenta } from '../../model/Cuenta';
+import { Movimiento } from '../../model/Movimiento';
 import { listarCuentas } from '../../application/cuenta/listarCuentas';
 import { listarMovimientos } from '../../application/cuenta/listarMovimientos';
 import { ingresarSaldo } from '../../application/cuenta/ingresarSaldo';
@@ -9,7 +9,7 @@ import { retirarSaldo } from '../../application/cuenta/retirarSaldo';
 import TransferenciaForm from '../components/TransferenciaForm';
 import Navbar from '../components/Navbar';
 import { borrarCuenta, crearCuenta } from '../../application/cuenta/crearCuentas';
-import { Usuario } from '../../domain/Usuario';
+import { Usuario } from '../../model/Usuario';
 import { getUsuarioActual } from '../../application/usuario/getUsuarioActual';
 export default function Dashboard() {
   const [cuentas, setCuentas] = useState<Cuenta[]>([]);

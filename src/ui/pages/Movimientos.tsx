@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { listarMovimientos } from '../../application/cuenta/listarMovimientos';
-import { Movimiento } from '../../domain/Movimiento';
+import { Movimiento } from '../../model/Movimiento';
 import Navbar from '../components/Navbar';
 
 export default function Movimientos() {

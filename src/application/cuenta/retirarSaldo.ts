@@ -1,8 +1,8 @@
-import { retirarSaldoApi } from "../../adapters/api/cuentaApi";
+import axios from "axios";
 
 export const retirarSaldo = async (
   cuentaId: number,
   monto: number
 ): Promise<void> => {
-  await retirarSaldoApi(cuentaId, monto);
+  await axios.post(`cuentas/${cuentaId}/retirar/`, { monto });
 };

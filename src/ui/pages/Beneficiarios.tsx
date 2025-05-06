@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Beneficiario } from '../../domain/Beneficiario';
+import { Beneficiario } from '../../model/Beneficiario';
 import { listarBeneficiarios } from '../../application/beneficiario/listarBeneficiarios';
 import { agregarBeneficiario } from '../../application/beneficiario/agregarBeneficiario';
 import { eliminarBeneficiario } from '../../application/beneficiario/eliminarBeneficiario';

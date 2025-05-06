@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import { Cuenta } from '../../domain/Cuenta';
+import { Cuenta } from '../../model/Cuenta';
 import { listarCuentas } from '../../application/cuenta/listarCuentas';
 import { transferirSaldo } from '../../application/cuenta/transferirSaldo';
 import { listarBeneficiarios } from '../../application/beneficiario/listarBeneficiarios';
-import { Beneficiario } from '../../domain/Beneficiario';
+import { Beneficiario } from '../../model/Beneficiario';
 interface Props {
   onTransferenciaExitosa: () => void;
 }

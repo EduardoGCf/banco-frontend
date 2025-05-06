@@ -1,6 +1,6 @@
 // application/cuenta/listarMovimientos.ts
 import axios from "../../adapters/api/axios";
-import { Movimiento } from "../../domain/Movimiento";
+import { Movimiento } from "../../model/Movimiento";
 
 export async function listarMovimientos(
   cuentaId: number

@@ -1,8 +1,8 @@
-import { ingresarSaldoApi } from "../../adapters/api/cuentaApi";
+import axios from "axios";
 
 export const ingresarSaldo = async (
   cuentaId: number,
   monto: number
 ): Promise<void> => {
-  await ingresarSaldoApi(cuentaId, monto);
+  await axios.post(`cuentas/${cuentaId}/ingresar/`, { monto });
 };
