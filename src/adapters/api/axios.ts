@@ -11,7 +11,6 @@ const instance = axios.create({
   baseURL: "http://127.0.0.1:8000/api/",
 });
 
-// Interceptor para agregar token
 instance.interceptors.request.use(
   (config) => {
     const token = getAccessToken();
@@ -23,7 +22,6 @@ instance.interceptors.request.use(
   (error) => Promise.reject(error)
 );
 
-// Interceptor para manejar errores 401 y refrescar token
 instance.interceptors.response.use(
   (response) => response,
   async (error) => {
@@ -47,7 +45,7 @@ instance.interceptors.response.use(
         saveTokens(access, refresh);
         originalRequest.headers.Authorization = `Bearer ${access}`;
 
-        return instance(originalRequest); // Reintenta la petición original
+        return instance(originalRequest);
       } catch (err) {
         clearTokens();
         window.location.href = "/";
