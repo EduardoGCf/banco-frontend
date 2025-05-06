@@ -16,3 +16,7 @@ export const clearTokens = () => {
   localStorage.removeItem(ACCESS_KEY);
   localStorage.removeItem(REFRESH_KEY);
 };
+
+export const getRefreshToken = (): string | null => {
+  return localStorage.getItem(REFRESH_KEY);
+};
